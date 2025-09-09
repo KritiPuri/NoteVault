@@ -38,31 +38,31 @@ export const Home = () => {
     return (
         <Fragment>
             <Navbar />
-            <main className="flex bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 min-h-screen">
+            <main className="flex bg-gray-50 min-h-screen">
                 <SideBar />
-                <div className="flex-1 p-6">
+                <div className="flex-1">
                     {/* Note Input Area */}
-                    <div className="max-w-lg mx-auto mb-8">
-                        <div className="bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden">
+                    <div className="max-w-2xl mx-auto pt-12 pb-8 px-8">
+                        <div className="bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden">
                             <input 
                                 value={title} 
                                 onChange={onTitleChange} 
-                                className="w-full px-4 py-3 border-b border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base placeholder-gray-500" 
-                                placeholder="Enter title..." 
+                                className="w-full px-6 py-4 border-b border-gray-100 focus:outline-none focus:ring-0 focus:border-blue-400 text-lg font-medium placeholder-gray-400 bg-transparent" 
+                                placeholder="Enter title" 
                             />
                             <div className="relative">
                                 <textarea 
                                     value={text} 
                                     onChange={onTextChange} 
-                                    className="w-full px-4 py-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700 placeholder-gray-500 leading-relaxed" 
-                                    placeholder="Write your note here..." 
+                                    className="w-full px-6 py-4 h-40 resize-none focus:outline-none focus:ring-0 text-gray-700 placeholder-gray-400 bg-transparent leading-relaxed" 
+                                    placeholder="Enter Text" 
                                 />
                                 <button 
                                     disabled={title.length === 0} 
                                     onClick={onAddClick} 
-                                    className="absolute bottom-3 right-3 w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full hover:from-blue-700 hover:to-blue-800 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg"
+                                    className="absolute bottom-4 right-4 w-12 h-12 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
                                 >
-                                    <span className="material-icons text-lg">
+                                    <span className="material-icons text-xl">
                                         add
                                     </span>
                                 </button>
@@ -71,50 +71,52 @@ export const Home = () => {
                     </div>
                     
                     {/* Notes Sections */}
-                    <div className="max-w-7xl mx-auto space-y-8">
-                        {
-                            pinnedNotes?.length > 0 && (
-                                <div>
-                                    <div className="flex items-center gap-2 mb-4">
-                                        <span className="material-icons text-blue-600 text-xl">push_pin</span>
-                                        <h3 className="text-xl font-semibold text-gray-800">Pinned Notes</h3>
-                                    </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                                        {
-                                            pinnedNotes.map(({ id, title, text, isPinned }) => (
-                                                <NotesCard key={id} id={id} title={title} text={text} isPinned={isPinned} />
-                                            ))
-                                        }
-                                    </div>
-                                </div>
-                            )
-                        }
-                        
-                        <div>
+                    <div className="px-8 pb-8">
+                        <div className="max-w-7xl mx-auto space-y-10">
                             {
                                 pinnedNotes?.length > 0 && (
-                                    <div className="flex items-center gap-2 mb-4">
-                                        <span className="material-icons-outlined text-gray-600 text-xl">note</span>
-                                        <h3 className="text-xl font-semibold text-gray-800">Other Notes</h3>
+                                    <div>
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <span className="material-icons text-blue-600 text-2xl">push_pin</span>
+                                            <h3 className="text-2xl font-bold text-gray-800 tracking-tight">Pinned Notes</h3>
+                                        </div>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                                            {
+                                                pinnedNotes.map(({ id, title, text, isPinned, isImportant }) => (
+                                                    <NotesCard key={id} id={id} title={title} text={text} isPinned={isPinned} isImportant={isImportant} location="notes" />
+                                                ))
+                                            }
+                                        </div>
                                     </div>
                                 )
                             }
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                            
+                            <div>
                                 {
-                                    otherNotes?.length > 0 ? otherNotes.map(({ id, title, text, isPinned }) => (
-                                        <NotesCard key={id} id={id} title={title} text={text} isPinned={isPinned} />
-                                    )) : !pinnedNotes?.length && (
-                                        <div className="col-span-full text-center py-12">
-                                            <div className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm max-w-md mx-auto">
-                                                <span className="material-icons-outlined text-gray-300 text-6xl mb-4 block">
-                                                    note_add
-                                                </span>
-                                                <h4 className="text-lg font-medium text-gray-600 mb-2">No notes yet</h4>
-                                                <p className="text-gray-500 text-sm">Create your first note to get started!</p>
-                                            </div>
+                                    pinnedNotes?.length > 0 && (
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <span className="material-icons-outlined text-gray-600 text-2xl">note</span>
+                                            <h3 className="text-2xl font-bold text-gray-800 tracking-tight">Other Notes</h3>
                                         </div>
                                     )
                                 }
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                                    {
+                                        otherNotes?.length > 0 ? otherNotes.map(({ id, title, text, isPinned, isImportant }) => (
+                                            <NotesCard key={id} id={id} title={title} text={text} isPinned={isPinned} isImportant={isImportant} location="notes" />
+                                        )) : !pinnedNotes?.length && (
+                                            <div className="col-span-full text-center py-16">
+                                                <div className="bg-white rounded-2xl p-12 border border-gray-200 shadow-sm max-w-md mx-auto">
+                                                    <span className="material-icons-outlined text-gray-300 text-8xl mb-6 block">
+                                                        note_add
+                                                    </span>
+                                                    <h4 className="text-xl font-semibold text-gray-600 mb-3">No notes yet</h4>
+                                                    <p className="text-gray-500">Create your first note to get started!</p>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
