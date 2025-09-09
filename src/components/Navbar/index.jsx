@@ -1,11 +1,9 @@
 export const Navbar = () => {
     return (
-        <header className='flex items-center justify-between px-8 py-5 bg-white border-b border-gray-100 shadow-sm'>
-            <div className='flex items-center gap-4'>
-                <div className='w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg'>
-                    <span className='text-white text-lg font-bold'>📝</span>
-                </div>
-                <h1 className='text-blue-600 text-2xl font-bold tracking-tight'>Hyper Notes</h1>
+        <header className='flex items-center justify-center px-8 py-8 bg-gray-900/95 backdrop-blur-xl border-b border-gray-800/30'>
+            <div className='text-center'>
+                <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 text-4xl font-bold tracking-tight mb-2'>Hyper Notes</h1>
+                <p className='text-gray-400 text-lg font-medium'>Distraction-free note taking</p>
             </div>
         </header>
     )

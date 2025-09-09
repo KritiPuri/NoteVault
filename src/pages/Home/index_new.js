@@ -42,7 +42,7 @@ export const Home = () => {
                 {/* Background decoration */}
                 <div className="absolute inset-0 opacity-20">
                     <div className="absolute inset-0" style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234F46E5' fill-opacity='0.1'%3E%3Crect x='20' y='15' width='20' height='30' rx='2'/%3E%3Cline x1='25' y1='22' x2='35' y2='22' stroke='%234F46E5' stroke-width='1' stroke-opacity='0.1'/%3E%3Cline x1='25' y1='27' x2='35' y2='27' stroke='%234F46E5' stroke-width='1' stroke-opacity='0.1'/%3E%3Cline x1='25' y1='32' x2='32' y2='32' stroke='%234F46E5' stroke-width='1' stroke-opacity='0.1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234F46E5' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
                         backgroundSize: '60px 60px'
                     }}></div>
                 </div>
@@ -52,12 +52,12 @@ export const Home = () => {
                     {/* Centered Note Editor */}
                     <div className="flex items-center justify-center min-h-screen py-12">
                         <div className="w-full max-w-3xl mx-auto px-8">
-                            <div className="bg-gray-800/50 backdrop-blur-xl border border-gray-700/30 shadow-2xl p-8 ring-1 ring-gray-600/10">
+                            <div className="bg-gray-800/50 backdrop-blur-xl rounded-3xl border border-gray-700/30 shadow-2xl p-8 ring-1 ring-gray-600/10">
                                 {/* Title Input */}
                                 <input 
                                     value={title} 
                                     onChange={onTitleChange} 
-                                    className="w-full mb-6 bg-transparent focus:outline-none text-3xl font-semibold placeholder-gray-500 text-white transition-all duration-300 focus:placeholder-gray-400 text-center" 
+                                    className="w-full mb-6 bg-transparent focus:outline-none text-3xl font-semibold placeholder-gray-500 text-white transition-all duration-300 focus:placeholder-gray-400" 
                                     placeholder="Untitled Note" 
                                 />
                                 
