@@ -1,6 +1,10 @@
 # 📝 Hyper Notes
 
 A modern note-taking application built with React
+
+## 🚀 Live Demo
+👉 [View Live Site](https://note-vault-eight.vercel.app)
+
 ## 📁 Project Structure
 
 ```
