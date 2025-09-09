@@ -1,6 +1,7 @@
 # 📝 Hyper Notes
 
-A modern note-taking application built with Reac## 📁 Project Structure
+A modern note-taking application built with React
+## 📁 Project Structure
 
 ```
 note-vault/
